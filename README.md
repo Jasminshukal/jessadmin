@@ -1,4 +1,4 @@
-# Welcome jessadmin Admin Package 
+# # [Welcome jessadmin Admin Package](https://github.com/shukaljasmin/jessadmin)
 jessadmin is a laravel package for quick admin setup in laravel..
 ## Installation
 Use the package manager [composer](https://getcomposer.org/) to install jessadmin.
@@ -10,4 +10,51 @@ go command prompt
 ```bash
 composer require shukaljasmin/jessadmin
 ```
+###### Step – 4
+Get A List Of Registered Route Follow Command
+```bash
+php artisan route:list
+```
+Following Route Is Exist Or Not
+```bash
+|        | GET|HEAD | admin               |           | Shukaljasmin\jessadmin\Controllers\JessadminController@index       | web            |        
+|        | GET|HEAD | admin/jess_home     |           | Shukaljasmin\jessadmin\Controllers\JessadminController@home        | web,AdminCheck |        
+|        | GET|HEAD | admin/jess_sesstion |           | Shukaljasmin\jessadmin\Controllers\JessAdminSessionController@show | web            |        
+|        | POST     | admin/jesslogin     | jesslogin | Shukaljasmin\jessadmin\Controllers\JessadminController@admin_login | web            |        
+```
+###### Step – 5
+Set .env File As You Can Use Regularly
 
+```bash
+use Illuminate\Database\Schema\Builder;
+
+function boot()
+{
+    Builder::defaultStringLength(191);
+}
+```
+And 
+```bash
+php artisan migrate:fresh
+```
+
+###### Step – 6
+
+```bash
+php artisan vendor:publish --tag=config
+```
+
+###### Step – 7
+```bash
+Go to file config\jessadmin.php
+```
+Follow Path Array Set Your Login View Path 
+```bash
+'path' => [
+        'login'=>'vendor/pages/login',
+        'test_login'=>'vendor/pages/test_login',
+        
+    ],
+```
+###### Step – 8
+Thank You
